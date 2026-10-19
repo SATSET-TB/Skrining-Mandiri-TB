@@ -359,11 +359,6 @@
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
-        @media (min-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
         .team-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -376,6 +371,7 @@
         .team-card.leader-card {
             border: 2px solid var(--primary);
             background: linear-gradient(180deg, #FFFFFF 0%, var(--secondary) 100%);
+            order: -1; /* Di tampilan HP (potret), ketua tim berada paling atas */
         }
         .team-card:hover {
             transform: translateY(-4px);
@@ -419,6 +415,15 @@
             font-weight: 500;
             font-size: 0.85rem;
             margin-top: 0.35rem;
+        }
+
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .team-card.leader-card {
+                order: 0; /* Di tampilan desktop/landscape, ketua tim kembali ke posisi tengah */
+            }
         }
 
         /* Footer */
